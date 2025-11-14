@@ -1,0 +1,149 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">Mamta Palace</a>
+  </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav mx-auto d-flex gap-5">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Bookings
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a
+                class="dropdown-item"
+                style="color: black"
+                routerLink="/booking"
+              >
+                Confirm</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                style="color: black"
+                routerLink="/booking/edit"
+                >Edit</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                style="color: black"
+                routerLink="/booking/cancel"
+                >Cancel</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/rooms" routerLinkActive="active"
+            >Rooms</a
+          >
+        </li>
+        <!-- <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/staff">Staff</a>
+      </li> -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Staff
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" style="color: black" routerLink="/staff">
+                Add</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                style="color: black"
+                routerLink="/staff/edit"
+                >Edit</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                style="color: black"
+                routerLink="/staff/view"
+                >View</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Dinning
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a
+                class="dropdown-item"
+                style="color: black"
+                routerLink="/dinning/menu"
+              >
+                MenuList</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                style="color: black"
+                routerLink="/dinning/table"
+                >TableBooking</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/meeting" routerLinkActive="active"
+            >Meeting</a
+          >
+        </li>
+      </ul>
+    </div>
+  
+</nav>
+
+<div class="container mt-4">
+  <router-outlet></router-outlet>
+</div>

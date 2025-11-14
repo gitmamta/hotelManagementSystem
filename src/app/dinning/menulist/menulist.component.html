@@ -1,0 +1,36 @@
+<div class="container my-4">
+
+  <!-- Banner Image -->
+  <div class="text-center mb-5">
+    <img [src]="imageUrl" alt="Dining Banner" class="img-fluid rounded shadow-sm">
+  </div>
+
+  <!-- Loop through meal categories -->
+  <div *ngFor="let type of mealTypes" class="mb-5">
+    <h2 class="mb-4 text-primary border-bottom pb-2">{{ type }}</h2>
+
+    <div class="row g-4">
+      <!-- Loop through menu items -->
+      <div *ngFor="let item of groupedMenuItems[type]" class="col-12 col-sm-6 col-lg-4 d-flex">
+        <div class="card flex-fill shadow-sm">
+
+          <a [routerLink]="['/menu', item.id]" class="text-decoration-none text-dark">
+
+            <!-- Image scales naturally -->
+            <img [src]="item.image || 'assets/no-image.png'" class="card-img-top img-fluid" alt="Menu Item">
+
+            <div class="card-body">
+              <h5 class="card-title text-primary">{{ item.name }}</h5>
+              <p class="card-text text-success mb-1">Price: ${{ item.price }}</p>
+              <p class="card-text">{{ item.description }}</p>
+              <p *ngIf="!item.available" class="text-danger fw-bold">Not Available</p>
+            </div>
+
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

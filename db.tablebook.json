@@ -1,0 +1,31 @@
+{
+  "tableBookings": [
+    {
+      "id": "1",
+      "name": "Mamta",
+      "phone": "9999999999",
+      "date": "2025-10-15",
+      "time": "20:00",
+      "guests": 3,
+      "specialRequest": "Birthday surprise"
+    },
+    {
+      "id": "2",
+      "name": "Jeet",
+      "phone": "9999999999",
+      "date": "2025-08-02",
+      "time": "20:00",
+      "guests": 2,
+      "specialRequest": "Birthday surprise"
+    },
+    {
+      "id": "8757",
+      "name": "mamta",
+      "phoneNo": "9762214950",
+      "time": "03:24",
+      "date": "2025-10-02",
+      "guest": 2,
+      "specialRequest": "window seat with happy birthday message"
+    }
+  ]
+}

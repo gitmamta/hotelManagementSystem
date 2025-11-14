@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+/* .active{
+    color:crimson!important;
+} */
+ body{
+
+ 
+font-family: 'Poppins', sans-serif;
+ }
+/* container */
+
+ .proContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit(minmax(300px,1fr)));
+    gap:30px;
+    padding:20px;
+
+}
+/* .card-body{
+    
+     transition: transform 0.1s ease;
+     
+     
+}
+.card-body:hover{
+     transform: scale(1.1);
+} */
+
+ 
+
+.custom-form span{
+    color:red;
+    font-size:14px;
+
+}

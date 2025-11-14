@@ -1,0 +1,25 @@
+<section class="proContainer py-4">
+      
+    <div *ngFor="let element of data;let i=index" class="card mb-4 shadow-sm">
+        <div class="row g-0 align-items-center">
+        <div class="col md-8">
+            
+            <img [src]="element?.imageUrl" alt="No Image Found"class="img-fluid rounded-text" style= "width:100%;height: 350px; object-fit: cover;">
+        </div>
+        <div class="col md-2">
+      <div class="card-body d-flex flex-column">
+            <h1 class="card-title" fw-bold>Meeting Area : {{element?.name}}</h1>
+            <p class="card-title"> Price Per Hour: {{element?.pricePerHour | currency:"INR"}}</p>
+            <p class="card-title">Short Description:{{element?.description}}</p>
+            <p class="card-title">Capacity:{{element?.capacity}}</p>
+            <p class="card-title">Ameneties:{{element?.amenities?.join(', ')}}</p>
+           <div class="d-inline-block"> 
+            <button class="btn btn-primary btn-sm my-3" (click)="onClick()" >book now</button>
+           </div>
+      </div>
+      </div>
+      </div>
+   
+    </div>
+    
+</section>

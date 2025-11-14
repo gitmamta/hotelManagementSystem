@@ -1,0 +1,28 @@
+.navbar-nav a {
+  /* display: flex;
+  align-items: center;
+  gap: 1.3rem; */
+  color: white;
+  font-size: 20px;
+}
+
+.navbar {
+  background: #0b1f3a;
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 575.98px) {
+  #navbarNavDropdown .navbar-nav {
+    gap: 0.5rem;
+    flex-direction: column !important;
+    text-align: center;
+  }
+  #navbarNavDropdown .nav-item {
+    text-align: center; /* center each item */
+    width: 100%; /* optional: make dropdown items full width */
+  }
+
+  #navbarNavDropdown .dropdown-menu {
+    text-align: center; /* center dropdown links */
+  }
+}

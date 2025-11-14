@@ -1,0 +1,21 @@
+/* Container: CSS Grid for card layout */
+/* .proContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 20px;
+} */
+
+/* Card hover effect */
+.custom-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.custom-card:hover {
+  transform: translateY(-5px);
+}
+

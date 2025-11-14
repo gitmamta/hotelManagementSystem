@@ -1,0 +1,125 @@
+
+
+
+<div id="roomCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    <div class="carousel-item active">
+      <div class="d-flex gap-3 justify-content-center">
+        <img src="assets/images/table3.jpg" class="d-block w-50" alt="Room 1">
+        <img src="assets/images/room4.webp" class="d-block w-50" alt="Room 2">
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <div class="d-flex gap-3 justify-content-center">
+        <img src="assets/images/room5.jpg" class="d-block w-50" alt="Room 3">
+        <img src="assets/images/room6.webp" class="d-block w-50" alt="Room 4">
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#roomCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#roomCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+<!-- ....... -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="bookingContainer">
+    <div class="booking-container">
+        <h1 class="text-center">Table Booking</h1>
+        <form (ngSubmit)="submitBooking()" [formGroup]="registerForm" class="d-flex flex-column gap-3 mb-4 p-4 custom-form rounded shadow">
+
+
+            <div>
+                <label for="name">Name</label>
+                <input type="text" placeholder="Enter user name" class="form-control" formControlName="name" />
+                <span *ngIf="registerForm.get('name').hasError('required') && registerForm.get('name').touched">Please
+                    Enter Name</span>
+            </div>
+
+
+
+            <div>
+                <label for="phoneNo">Phone No.:</label>
+                <input type="phoneNo" placeholder="Enter phone no" class="form-control" formControlName="phoneNo" />
+                <span
+                    *ngIf="registerForm.get('phoneNo').hasError('required') && registerForm.get('phoneNo').touched">Please
+                    Enter phone no</span>
+                <span
+                    *ngIf="registerForm.get('phoneNo').hasError('minlength') && registerForm.get('phoneNo').touched">Please
+                    Enter valid phone no</span>
+            </div>
+
+
+
+
+            <div>
+                <label for="date">Date</label>
+                <input type="date" placeholder="Enter date" class="form-control" formControlName="date" />
+                <span *ngIf="registerForm.get('date').hasError('required') && registerForm.get('date').touched">Please
+                    Enter date </span>
+            </div>
+
+            <div>
+                <label for="guest">Guest:</label>
+                <input type="number" placeholder="Enter no of guests" class="form-control" formControlName="guest" />
+
+                <span *ngIf="registerForm.get('guest').hasError('required') && registerForm.get('guest').touched">
+                    Please enter number of guests
+                </span>
+                <span *ngIf="registerForm.get('guest').hasError('min') && registerForm.get('guest').touched">
+                    Minimum guests is 2
+                </span>
+                <span *ngIf="registerForm.get('guest').hasError('max') && registerForm.get('guest').touched">
+                    Maximum guests allowed is 10
+                </span>
+            </div>
+
+
+
+
+            <div>
+                <label for="time">Time</label>
+                <input type="time" placeholder="Enter time" class="form-control" formControlName="time" />
+                <span *ngIf="registerForm.get('time').hasError('required') && registerForm.get('time').touched">Please
+                    Enter time</span>
+            </div>
+            <div class="mb-3">
+  <label for="specialRequest" class="form-label">Special Message</label>
+  <textarea
+    id="specialRequest"
+    formControlName="specialRequest"
+    class="form-control"
+    rows="3"
+    placeholder="e.g. Window seat, birthday surprise"
+  ></textarea>
+</div>
+
+            <div class=text-center>
+                <button type="submit" [disabled]="!registerForm.valid" class="btn btn-danger">Book Now</button>
+            </div>
+
+
+        </form>
+    </div>
+</div>

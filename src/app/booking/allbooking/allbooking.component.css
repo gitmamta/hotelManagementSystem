@@ -1,0 +1,17 @@
+/* .bookingContainer{
+background: #4169E1;
+} */
+ /* .custom-form {
+  background-color: #e3f2fd; /* light blue background */
+/* } */ 
+
+.custom-form {
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  color: #333;
+}
+
+/* .custom-form span{
+    color:red;
+    font-size:14px;
+
+} */

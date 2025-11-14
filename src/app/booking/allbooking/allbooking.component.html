@@ -1,0 +1,143 @@
+<!-- // -->
+
+<div id="roomCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    <div class="carousel-item active">
+      <div class="d-flex gap-3 justify-content-center">
+        <img src="assets/images/room3.webp" class="d-block w-50" alt="Room 1">
+        <img src="assets/images/room4.webp" class="d-block w-50" alt="Room 2">
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <div class="d-flex gap-3 justify-content-center">
+        <img src="assets/images/room5.jpg" class="d-block w-50" alt="Room 3">
+        <img src="assets/images/image7.jpg" class="d-block w-50" alt="Room 4">
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#roomCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#roomCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+<!-- ....... -->
+
+
+
+
+
+<div class="bookingContainer mt-4" >
+    <div class="booking-container">
+        <h1 class="text-center fw-bold mt-4">Hotel Booking</h1>
+        <form (ngSubmit)="submitBooking()" [formGroup]="registerForm" class="d-flex flex-column gap-3 mb-4 p-4 custom-form rounded shadow">
+            <div>
+                <label for="roomId">RoomId</label>
+                <input type="text" placeholder="Enter room Id" class="form-control" formControlName="roomId" />
+                <span
+                    *ngIf="registerForm.get('roomId').hasError('required') && registerForm.get('roomId').touched">Please
+                    Enter roomId</span>
+            </div>
+
+            <div>
+                <label for="userId">UserId</label>
+                <input type="text" placeholder="Enter user Id" class="form-control" formControlName="userId" />
+                <span
+                    *ngIf="registerForm.get('userId').hasError('required') && registerForm.get('userId').touched">Please
+                    Enter userId</span>
+            </div>
+            <div>
+                <label for="username">Username</label>
+                <input type="username" placeholder="Enter username" class="form-control" formControlName="username" />
+                <span
+                    *ngIf="registerForm.get('username').hasError('required') && registerForm.get('username').touched">Please
+                    Enter username</span>
+            </div>
+
+
+
+            <div>
+                <label for="email">email</label>
+                <input type="email" placeholder="Enter email" class="form-control" formControlName="email" />
+                <span *ngIf="registerForm.get('email').hasError('required') && registerForm.get('email').touched">Please
+                    Enter email</span>
+                <span *ngIf="registerForm.get('email').hasError('email') && registerForm.get('email').touched">Please
+                    Enter valid email</span>
+
+            </div>
+            <div>
+                <label for="phoneNo">Phone No.:</label>
+                <input type="phoneNo" placeholder="Enter phone no" class="form-control" formControlName="phoneNo" />
+                <span
+                    *ngIf="registerForm.get('phoneNo').hasError('required') && registerForm.get('phoneNo').touched">Please
+                    Enter phone no</span>
+                <span
+                    *ngIf="registerForm.get('phoneNo').hasError('minlength') && registerForm.get('phoneNo').touched">Please
+                    Enter valid phone no</span>
+            </div>
+
+
+
+
+            <div>
+                <label for="CheckInDate">CheckInDate</label>
+                <input type="date" placeholder="Enter date" class="form-control" formControlName="checkInDate" />
+                <span
+                    *ngIf="registerForm.get('checkInDate').hasError('required') && registerForm.get('checkInDate').touched">Please
+                    Enter checkIn date </span>
+            </div>
+            <div>
+                <label for="checkOutDate">ChecOutDate</label>
+                <input type="date" placeholder="Enter date" class="form-control" formControlName="checkOutDate" />
+                <span
+                    *ngIf="registerForm.get('checkOutDate').hasError('required') && registerForm.get('checkOutDate').touched">Please
+                    Enter checkOut date </span>
+            </div>
+
+            <div>
+                <label for="guest">Guest:</label>
+                <input type="number" placeholder="Enter no of guests" class="form-control" formControlName="guest" />
+
+                <span *ngIf="registerForm.get('guest').hasError('required') && registerForm.get('guest').touched">
+                    Please enter number of guests
+                </span>
+                <span *ngIf="registerForm.get('guest').hasError('min') && registerForm.get('guest').touched">
+                    Minimum guests is 2
+                </span>
+                <span *ngIf="registerForm.get('guest').hasError('max') && registerForm.get('guest').touched">
+                    Maximum guests allowed is 50
+                </span>
+            </div>
+
+            <div>
+                <label for="bookingType">Room Type:</label>
+                <select formControlName="bookingType">
+                    <option value="meeting">Meeting</option>
+                    <option value="dinner">Dinner</option>
+                    <option value="event">Event</option>
+
+                </select>
+
+            </div>
+
+
+            <div>
+                <label for="time">Time</label>
+                <input type="time" placeholder="Enter time" class="form-control" formControlName="time" />
+                <span *ngIf="registerForm.get('time').hasError('required') && registerForm.get('time').touched">Please
+                    Enter time</span>
+            </div>
+            <div>
+                <button type="submit" [disabled]="!registerForm.valid" class="btn btn-danger">Submit</button>
+            </div>
+
+
+        </form>
+    </div>
+</div>

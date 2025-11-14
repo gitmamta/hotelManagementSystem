@@ -1,0 +1,32 @@
+{
+  "staff": [
+    {
+      "id": "1",
+      "staffName": "John Doe",
+      "role": "Manager",
+      "email": "john@example.com",
+      "phoneNo": "1234567890"
+    },
+    {
+      "id": "2",
+      "staffName": "Alice Smith",
+      "role": "Receptionist",
+      "email": "alice@example.com",
+      "phoneNo": "9876543210"
+    },
+    {
+      "id": "3",
+      "staffName": "Mamta",
+      "email": "mmata@gmail.com",
+      "phoneNo": "9762214567",
+      "role": "manager"
+    },
+    {
+      "id": "4",
+      "staffName": "Sara Lee",
+      "role": "Security",
+      "email": "sara@example.com",
+      "phoneNo": "5566778899"
+    }
+  ]
+}

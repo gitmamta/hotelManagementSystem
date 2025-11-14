@@ -1,0 +1,51 @@
+{
+  "menu": [
+    {
+      "id": 1,
+      "name": "Butter Scotch Milkshake",
+      "description": "utter Scotch Milkshake",
+      "price": 12.99,
+      "category": "Breakfast",
+      "available": true,
+      "image": "https://bakingwithbutter.com/wp-content/uploads/2023/07/butterscotch-milkshake-6-1-540x720.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Paneer Tikka",
+      "description": "Grilled paneer with spices.",
+      "price": 10.5,
+      "category": "Dinner",
+      "available": true,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4Z0PCp52-V9vqXAROsdrrgsc4WUwJ1RDL7w&s"
+    },
+    {
+      "id": 3,
+      "name": "Poha",
+      "description": "Light breakfast rice flakes.",
+      "price": 4.5,
+      "category": "Breakfast",
+      "available": false,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKpstofmILg1PHS8faWDWbj16ksCSlOJIzdg&s"
+    },
+     {
+      "id": 4,
+      "name": "Mushroom Gravy",
+      "description": "Rich and creamy mushroom gravy made with fresh mushrooms and herbs, perfect to complement your meals",
+      "price": 4.5,
+      "category": "Lunch",
+      "available": false,
+      "image": "https://www.billyparisi.com/wp-content/uploads/2024/11/mushroom-gravy-7.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Pancakes",
+      "category": "Breakfast",
+      "price": 5.99,
+      "description": "Fluffy pancakes served with maple syrup and butter",
+      "image": "https://www.inspiredtaste.net/wp-content/uploads/2016/07/Pancake-Recipe-2-1200.jpg",
+      "available": true
+
+    }
+
+  ]
+}

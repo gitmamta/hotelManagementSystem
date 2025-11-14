@@ -1,0 +1,76 @@
+{
+  "meeting" : [
+    {
+      "id": 1,
+      "name": "Terrace",
+      "description": "A scenic rooftop venue ideal for business meetings, receptions, and evening events.",
+      "imageUrl": "https://www.doylecollection.com/var/doyle/storage/images/media/doyle-redesign/images/hotels/shared-images/london-group-meeting-and-events/group-2-929x460/845828-2-eng-US/group-2-929x460.png",
+      "capacity": 50,
+      "pricePerHour": 2000,
+      "amenities": ["Wi-Fi", "Projector", "Sound System", "Catering"]
+    },
+    {
+      "id": 2,
+      "name": "Lawn",
+      "description": "A spacious green lawn perfect for weddings, large gatherings, and corporate events.",
+      "imageUrl": "https://thumbs.dreamstime.com/b/outdoor-meeting-535693.jpg",
+      "capacity": 100,
+      "pricePerHour": 3000,
+      "amenities": ["Stage", "Lighting", "Catering", "Parking"]
+    },
+    {
+      "id": 3,
+      "name": "Conference Room",
+      "description": "A professional indoor space equipped with all necessary meeting facilities.",
+      "imageUrl": "https://www.iino.co.jp/hall/en/assets/img/guide/conferencecenter/img_05.png",
+      "capacity": 25,
+      "pricePerHour": 1500,
+      "amenities": ["Air Conditioning", "Projector", "Whiteboard", "Wi-Fi"]
+    },
+    {
+      "id": 4,
+      "name": "Banquet Hall",
+      "description": "A luxurious hall suitable for formal dinners and corporate gatherings.",
+      "imageUrl": "https://static.wixstatic.com/media/ca9bbf_faaee2d92c094ab4bf0d0340fb90d530~mv2.png/v1/fill/w_926,h_926,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/VBanquet_Interior3.png",
+      "capacity": 150,
+      "pricePerHour": 5000,
+      "amenities": ["Lighting", "Sound System", "Catering", "Stage", "Wi-Fi"]
+    },
+    {
+      "id": 5,
+      "name": "Tea Meeting",
+      "description": "A casual, relaxed meeting with tea, coffee, and light snacks.",
+      "imageUrl": "https://img.freepik.com/free-photo/high-angle-people-cheering-with-coffee-mugs-office-meeting_23-2148817073.jpg?semt=ais_hybrid&w=740&q=80",
+      "capacity": 20,
+      "pricePerHour": 1000,
+      "amenities": ["Tea", "Coffee", "Snacks", "Wi-Fi"]
+    },
+    {
+      "id": 6,
+      "name": "Terrace",
+      "description": "A scenic rooftop venue ideal for business meetings, receptions, and evening events.",
+      "imageUrl": "https://www.ryancompanies.com/sites/default/files/styles/large/public/news/2023-06/10-West-End_Exterior_Terrace-Level_People.png.jpeg?itok=6WsPhaH2",
+      "capacity": 50,
+      "pricePerHour": 2000,
+      "amenities": ["Wi-Fi", "Projector", "Sound System", "Catering"]
+    },
+    {
+      "id": 7,
+      "name": "Lawn",
+      "description": "A casual, relaxed meeting with tea, coffee, and light snacks.",
+      "imageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/0b/7a/74/9b/open-lawn-a-beautiful.jpg",
+      "capacity": 20,
+      "pricePerHour": 1000,
+      "amenities": ["Tea", "Coffee", "Snacks", "Wi-Fi"]
+    },
+     {
+      "id": 8,
+      "name": "Coffee",
+      "description": "A casual, relaxed meeting with tea, coffee, and light snacks.",
+      "imageUrl": "https://cdn.shortpixel.ai/spai/q_lossless+ret_img+to_webp/imbibemagazine.com/wp-content/uploads/2015/11/stumptown-portland-ace.jpg",
+      "capacity": 20,
+      "pricePerHour": 1000,
+      "amenities": ["Tea", "Coffee", "Snacks", "Wi-Fi"]
+    }
+  ]
+}

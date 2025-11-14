@@ -1,0 +1,56 @@
+{
+  "bookings": [
+    {
+      "id": "b725",
+      "userId": "3",
+      "roomId": "101",
+      "username": "priya",
+      "email": "priya@gmail.com",
+      "phoneNo": "9762214853",
+      "checkInDate": "2025-10-17",
+      "checkOutDate": "2025-10-23",
+      "guest": 2,
+      "bookingType": "event",
+      "time": "02:44"
+    },
+    {
+      "roomId": "102",
+      "userId": 4,
+      "username": "priya",
+      "email": "priya@gmail.com",
+      "phoneNo": 976221453,
+      "checkInDate": "26-09-1025",
+      "checkOutDate": "29-09-2025",
+      "guest": 3,
+      "bookingType": "Dinner",
+      "time": "16:30",
+      "id": "6f88"
+    },
+    {
+      "id": "3112",
+      "userId": "3",
+      "roomId": "103",
+      "username": "pawan",
+      "email": "pawan@gmail.com",
+      "phoneNo": "7352138004",
+      "checkInDate": "2025-10-02",
+      "checkOutDate": "2025-10-04",
+      "guest": 2,
+      "bookingType": "dinner",
+      "time": "20:58"
+    },
+    {
+      "id": "f52a",
+      "userId": "4",
+      "roomId": "104",
+      "username": "sid",
+      "email": "sid@gmail.com",
+      "phoneNo": "8762214973",
+      "checkInDate": "2025-10-02",
+      "checkOutDate": "2025-10-03",
+      "guest": 3,
+      "bookingType": "dinner",
+      "time": "21:56"
+    }
+  ]
+}

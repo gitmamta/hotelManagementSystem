@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-center align-items-center vh-100" style="background-color: #f2f2f2;">
+<form class="form-group mb-4 p-5 custom-form rounded shadow ">
+    <!-- username -->
+     <h1 class="text-center fw-bold">Admin Login</h1>
+    <div class="mb-3">
+        <label for="username" class="form-label fw-semibold">Username</label>
+        <input type="text" placeholder="Enter Username" class="form-control" required #username />
+    </div>
+    <!-- password -->
+    <div class="mb-3">
+        <label for="psw" class="form-label fw-semibold">Password</label>
+        <input type="text" placeholder="Enter Password" required #password class="form-control" />
+    </div>
+
+<!-- <div>
+<label for="role" class="form-label">Role</label>
+<select name="role" id="role" class="form-control" required #role>
+    <option value="admin">Admin</option>
+    <option value="user">User</option>
+</select>
+
+
+
+
+</div> -->
+
+
+    <!-- action Buttons -->
+    <div class="mb-3 text-center">
+        <button type="button" (click)="onLoginClicked()" class="btn btn-primary">
+            Login
+        </button>
+    </div>
+</form>
+</div>
