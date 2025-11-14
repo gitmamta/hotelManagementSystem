@@ -1,24 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Booking } from 'src/app/models/booking.model';
+import { environment } from 'src/environments/environment.prods';
 @Injectable({
   providedIn: 'root',
 })
 export class BookingService {
-  url = "http://localhost:3000/api/bookings";
+  private API_URL = `${environment.apiUrl}/api/bookings`;
   constructor(private http: HttpClient) {}
   getAllbookings() {
-    return this.http.get<Booking>(this.url);
+    return this.http.get<Booking>(this.API_URL);
   }
   getDataById(id: any) {
-    return this.http.get<Booking>(`${this.url}/${id}`);
+    return this.http.get<Booking>(`${this.API_URL}/${id}`);
   }
  
 putDataById(id:any,updateData:any){
-  return this.http.put<Booking>(`${this.url}/${id}`,updateData)
+  return this.http.put<Booking>(`${this.API_URL}/${id}`,updateData)
 }
 addBooking(booking: any) {
-    return this.http.post(this.url, booking);
+    return this.http.post(this.API_URL, booking);
   }
 
 

@@ -1,19 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment.prods';
 @Injectable({
   providedIn: 'root',
 })
 export class RoomService {
-  url = "http://localhost:3000/api/rooms";
+  private API_URL = `${environment.apiUrl}/api/rooms`;
   constructor(private http: HttpClient) {}
   getAllroom() {
-    return this.http.get(this.url);
+    return this.http.get(this.API_URL);
   }
   getDataById(id: any) {
-    return this.http.get(`${this.url}/${id}`);
+    return this.http.get(`${this.API_URL}/${id}`);
   }
  patchDataById(id: any,updateData: any) {
-  return this.http.patch(`${this.url}/${id}`,updateData);
+  return this.http.patch(`${this.API_URL}/${id}`,updateData);
 }
 
 

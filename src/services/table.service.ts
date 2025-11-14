@@ -1,19 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment.prods';
 @Injectable({
   providedIn: 'root',
 })
 export class tableService {
-  url = "http://localhost:3000/tableBookings";
+  private API_URL = `${environment.apiUrl}/api/tableBookings`;
   constructor(private http: HttpClient) {}
   getAllTable() {
-    return this.http.get(this.url);
+    return this.http.get(this.API_URL);
   }
   getDataById(id: any) {
-    return this.http.get(`${this.url}/${id}`);
+    return this.http.get(`${this.API_URL}/${id}`);
   }
 addTable(tableData: any) {
-  return this.http.post(this.url,tableData);
+  return this.http.post(this.API_URL,tableData);
 }
 
 
