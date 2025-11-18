@@ -44,7 +44,7 @@ export class AllbookingComponent implements OnInit {
 
 
     this.http
-      .post(`${environment.apiUrl}/bookings`, this.registerForm.value)
+      .post(`${environment.apiUrl}/api/bookings`, this.registerForm.value)
       .subscribe((response) => {
         console.log('Booking saved:', response);
         alert('Booking submitted successfully!');
