@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment.prods';
+import { environment } from '../environments/environment.prod';
 @Injectable({
   providedIn: 'root',
 })
 export class MenuService {
-  private API_URL = `${environment.apiUrl}/api/menus`;
+  private API_URL = `${environment.apiUrl}/api/menu`;
   constructor(private http: HttpClient) {}
   getMenu() {
     return this.http.get(this.API_URL);
