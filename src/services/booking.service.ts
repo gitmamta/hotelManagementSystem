@@ -10,7 +10,7 @@ export class BookingService {
   private API_URL = `${environment.apiUrl}/api/bookings`;
   constructor(private http: HttpClient) {}
   getAllbookings() {
-    return this.http.get<Booking>(this.API_URL);
+    return this.http.get<Booking[]>(this.API_URL);
   }
   getDataById(id: any) {
     return this.http.get<Booking>(`${this.API_URL}/${id}`);
@@ -27,7 +27,7 @@ updateBookingFull(id: any, data: any) {
   }
 
   cancelBooking(id: any) {
-    return this.http.put(`${this.API_URL}/cancel/${id}`, {});
+    return this.http.put(`${this.API_URL}/cancel/${id}`, {status: 'cancelled' });
   }
 
 }
