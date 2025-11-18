@@ -23,7 +23,7 @@ addBooking(booking: any) {
     return this.http.post(this.API_URL, booking);
   }
 updateBookingFull(id: any, data: any) {
-    return this.http.put(`${this.API_URL}/update/${id}`, data);
+    return this.http.put(`${this.API_URL}${id}`, data);
   }
 
   cancelBooking(id: any) {
