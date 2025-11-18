@@ -40,7 +40,7 @@ export class CancelbookingComponent implements OnInit {
   cancelBooking() {
     
    const updateData = { status: 'cancelled' }; 
-    this.booking.putDataById(this.bookingId,updateData).subscribe({
+    this.booking.cancelBooking(this.bookingId).subscribe({
       next: (res) => {
         alert('Booking cancelled successfully!');
         this.registerForm.patchValue({ status: 'cancelled' });
