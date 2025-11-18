@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-allbooking',
@@ -43,7 +44,7 @@ export class AllbookingComponent implements OnInit {
 
 
     this.http
-      .post('http://localhost:3000/api/bookings', this.registerForm.value)
+      .post(`${environment.apiUrl}/bookings`, this.registerForm.value)
       .subscribe((response) => {
         console.log('Booking saved:', response);
         alert('Booking submitted successfully!');
