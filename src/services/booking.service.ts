@@ -22,12 +22,13 @@ putDataById(id:any,updateData:any){
 addBooking(booking: any) {
     return this.http.post(this.API_URL, booking);
   }
-updateBookingFull(id: any, data: any) {
-    return this.http.put(`${this.API_URL}/update/${id}`, data);
+  
+  cancelBooking(id: any) {
+    return this.http.patch(`${this.API_URL}/cancel/${id}`,{});
   }
 
-  cancelBooking(id: any) {
-    return this.http.put(`${this.API_URL}/cancel/${id}`, {status: 'cancelled' });
+patchDataById(id: any, data: any) {
+    return this.http.patch(`${this.API_URL}/${id}`,data);
   }
 
 }

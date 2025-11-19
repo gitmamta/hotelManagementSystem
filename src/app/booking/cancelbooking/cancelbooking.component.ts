@@ -38,17 +38,18 @@ export class CancelbookingComponent implements OnInit {
   }
 
   cancelBooking() {
-    
-   const updateData = { status: 'cancelled' }; 
-    this.booking.cancelBooking(this.bookingId).subscribe({
-      next: (res) => {
-        alert('Booking cancelled successfully!');
-        this.registerForm.patchValue({ status: 'cancelled' });
-      },
-      error: (err) => {
-        console.error(err);
-        alert('Failed to cancel booking.');
-      },
-    });
-  }
+  this.booking.cancelBooking(this.bookingId).subscribe({
+    next: (res: any) => {
+      alert('Booking cancelled successfully!');
+      // Update form status
+      this.registerForm.patchValue({ status: 'cancelled' });
+    },
+    error: (err) => {
+      console.error(err);
+      alert('Failed to cancel booking.');
+    },
+  });
 }
+
+    }
+  

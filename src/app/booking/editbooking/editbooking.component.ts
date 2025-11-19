@@ -64,7 +64,7 @@ export class EditbookingComponent implements OnInit {
       
       const updatedBooking = this.registerForm.value;
 
-      this.booking.updateBookingFull(this.bookingId,updatedBooking).subscribe({
+      this.booking.patchDataById(this.bookingId,updatedBooking).subscribe({
         next: (res) => {
           console.log('Booking updated:', res);
           alert('Booking updated successfully!');
