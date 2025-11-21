@@ -2,7 +2,7 @@
   <input
     type="text"
     class="form-control"
-    placeholder="Search by name or ID..."
+    placeholder="Search by name or staffId..."
     [(ngModel)]="searchText"
     (input)="searchBackend()"
   />
@@ -11,7 +11,7 @@
 <!-- Single Staff Card -->
 <div *ngIf="showSingle && staff" class="card-body">
   <h2>Staff Details</h2>
-  <p><strong>ID:</strong> {{ staff._id }}</p>
+  <p><strong>StaffID:</strong> {{ staff.StaffId }}</p>
   <p><strong>Name:</strong> {{ staff.staffName }}</p>
   <p><strong>Email:</strong> {{ staff.email }}</p>
   <p><strong>Phone:</strong> {{ staff.phoneNo }}</p>
@@ -24,7 +24,7 @@
   <table class="table table-striped" border="1">
     <thead>
       <tr>
-        <th>id</th>
+        <th>StaffId</th>
         <th>Name</th>
         <th>Email</th>
         <th>Phone</th>
@@ -34,13 +34,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let staff of filteredStaff; let i = index">
-        <td>{{ i + 1 }}</td>
+        <td>{{staff.staffId }}</td>
         <td>{{ staff.staffName }}</td>
         <td>{{ staff.email }}</td>
         <td>{{ staff.phoneNo }}</td>
         <td>{{ staff.role }}</td>
         <td>
-          <button (click)="viewStaff(staff._id)" class="btn btn-success btn-sm">View</button>
+          <button (click)="viewStaff(staff.staffId)" class="btn btn-success btn-sm">View</button>
         </td>
       </tr>
     </tbody>
