@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
 
@@ -15,7 +16,7 @@ export class AddstaffComponent implements OnInit {
   constructor(private http: HttpClient) {}
   ngOnInit(): void {
     this.registerForm = new FormGroup({
-      Id: new FormControl('', [Validators.required]),
+      staffId: new FormControl('', [Validators.required]),
      
 
       staffName: new FormControl('', [Validators.required]),
@@ -33,7 +34,7 @@ export class AddstaffComponent implements OnInit {
   
 
     this.http
-      .post('http://localhost:3000/staff', this.registerForm.value)
+      .post(`${environment.apiUrl}/api/staffs`, this.registerForm.value)
       .subscribe((response) => {
         console.log('staffinfo saved:', response);
         alert('staffinfo submitted successfully!');

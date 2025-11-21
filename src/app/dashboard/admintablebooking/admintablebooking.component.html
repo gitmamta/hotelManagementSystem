@@ -22,7 +22,7 @@
         <tr *ngFor="let booking of bookings; let i = index">
           <td>{{ i + 1 }}</td>
           <td>{{ booking.name }}</td>
-          <td>{{ booking.phone }}</td>
+          <td>{{ booking.phoneNo }}</td>
           <td>{{ booking.date | date: 'shortDate' }}</td>
           <td>{{ booking.guest }}</td>
           <td>{{ booking.time }}</td>

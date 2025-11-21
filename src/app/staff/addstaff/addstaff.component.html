@@ -40,15 +40,15 @@
             
 
             <div>
-                <label for="Id">StaffId</label>
-                <input type="text" placeholder="Enter user Id" class="form-control" formControlName="Id" />
+                <label for="StaffId">StaffId</label>
+                <input type="text" placeholder="Enter user Id" class="form-control" formControlName="staffId" />
                 <span
-                    *ngIf="registerForm.get('Id').hasError('required') && registerForm.get('Id').touched">Please
-                    Enter userId</span>
+                    *ngIf="registerForm.get('staffId').hasError('required') && registerForm.get('staffId').touched">Please
+                    Enter staffId</span>
             </div>
             <div>
                 <label for="staffName">Username</label>
-                <input type="staffName" placeholder="Enter username" class="form-control" formControlName="staffName" />
+                <input type="text" placeholder="Enter username" class="form-control" formControlName="staffName" />
                 <span
                     *ngIf="registerForm.get('staffName').hasError('required') && registerForm.get('staffName').touched">Please
                     Enter username</span>
@@ -67,7 +67,7 @@
             </div>
             <div>
                 <label for="phoneNo">Phone No.:</label>
-                <input type="phoneNo" placeholder="Enter phone no" class="form-control" formControlName="phoneNo" />
+                <input type="number" placeholder="Enter phone no" class="form-control" formControlName="phoneNo" />
                 <span
                     *ngIf="registerForm.get('phoneNo').hasError('required') && registerForm.get('phoneNo').touched">Please
                     Enter phone no</span>
