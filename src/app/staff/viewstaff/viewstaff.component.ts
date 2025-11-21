@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StaffService } from 'src/services/staff.service';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-viewstaff',
@@ -9,9 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./viewstaff.component.css'],
 })
 export class ViewstaffComponent implements OnInit {
-  allStaff: any[] = [];
-  staff: any = null;//for single staff
-  showSingle: boolean = false;//for conditionally for single staff and allstaff
+  searchText: string = '';
+  allStaff: any[] = [];       // full list from backend
+  filteredStaff: any[] = [];  // table display
+  staff: any = null;          // single staff card
+  showSingle: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,6 +22,7 @@ export class ViewstaffComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // Check route params for single staff
     this.route.params.subscribe((params: Params) => {
       const staffId = params['id'];
       if (staffId) {
@@ -29,21 +32,48 @@ export class ViewstaffComponent implements OnInit {
         });
       } else {
         this.showSingle = false;
-        this.staffService.getAllStaff().subscribe((data: any) => {
-          this.allStaff = data;
-        });
+        this.loadAllStaff();
       }
     });
   }
-  viewStaff(id: number) {
+
+  // Load all staff from backend
+  loadAllStaff() {
+    this.staffService.getAllStaff().subscribe((data: any) => {
+      this.allStaff = data;
+      this.filteredStaff = data; // initially show all
+    });
+  }
+
+  // View single staff
+  viewStaff(id: string) {
     this.staffService.getDataById(id).subscribe((data: any) => {
       this.staff = data;
       this.showSingle = true;
-      //  console.log('Clicked ID:', id);
     });
   }
+
+  // Back to table
   goBackToList() {
-    this.staff = null; // ✅ Hide individual staff view
+    this.router.navigate(['/viewstaff']);
+    this.staff = null;
     this.showSingle = false;
+    this.loadAllStaff(); // reload table
+  }
+
+  // Search staff by name or ID (backend)
+  searchBackend() {
+    const keyword = this.searchText.trim();
+
+    if (!keyword) {
+      this.filteredStaff = this.allStaff;
+      return;
+    }
+
+    this.staffService.searchStaff(keyword).subscribe((data: any) => {
+      this.filteredStaff = data;
+      this.showSingle = false;
+      this.staff = null;
+    });
   }
 }

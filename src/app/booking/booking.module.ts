@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CancelbookingComponent } from './cancelbooking/cancelbooking.component';
 import { EditbookingComponent } from './editbooking/editbooking.component';
 import { BookingRoutingModule } from './booking-routing.module';
+import { AdminBookingComponent } from './admin-booking/admin-booking.component';
 
 
 
@@ -13,7 +14,8 @@ import { BookingRoutingModule } from './booking-routing.module';
   declarations: [
     AllbookingComponent,
     CancelbookingComponent,
-    EditbookingComponent
+    EditbookingComponent,
+    AdminBookingComponent
     
     
   ],
@@ -27,6 +29,7 @@ import { BookingRoutingModule } from './booking-routing.module';
     AllbookingComponent,
     CancelbookingComponent,
     EditbookingComponent,
+    AdminBookingComponent
     
   ]
 })

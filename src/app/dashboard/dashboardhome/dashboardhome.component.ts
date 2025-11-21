@@ -3,11 +3,12 @@ import { Router } from '@angular/router';
 import { rooms } from 'src/utils/data1';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
+  selector: 'app-dashboardhome',
+  templateUrl: './dashboardhome.component.html',
+  styleUrls: ['./dashboardhome.component.css']
 })
-export class DashboardComponent {
+export class DashboardhomeComponent {
+
   roomsOccupied='15/30';
   data: any =rooms;
   constructor(private route: Router) {}
@@ -19,5 +20,6 @@ export class DashboardComponent {
   housekeepingPending='6 rooms';
   newBookingsToday='300';
 
-  
+
+
 }

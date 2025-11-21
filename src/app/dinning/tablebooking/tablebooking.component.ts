@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { tableService } from 'src/services/table.service';
+import { environment } from 'src/environments/environment.prod';
 
 
 @Component({
@@ -36,7 +37,7 @@ export class TablebookingComponent implements OnInit{
   
 
     this.http
-      .post('http://localhost:3000/tableBookings', this.registerForm.value)
+      .post(`${environment.apiUrl}/api/tableBookings`,this.registerForm.value)
       .subscribe((response) => {
         console.log('Booking saved:', response);
         alert('Booking submitted successfully!');

@@ -37,11 +37,7 @@ export class AllbookingComponent implements OnInit {
   }
   submitBooking() {
     console.log(this.registerForm.value);
-  //   const bookingData = {
-  //   ...this.registerForm.value, // all form values
-  //   status: 'active'            // manually add status
-  // };
-
+  
 
     this.http
       .post(`${environment.apiUrl}/api/bookings`, this.registerForm.value)

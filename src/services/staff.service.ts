@@ -20,4 +20,8 @@ export class StaffService {
   patchStaff(id: number, staffData: any) {
     return this.http.patch(`${this.API_URL}/${id}`, staffData);
   }
+  searchStaff(keyword: string) {
+  return this.http.get(`${this.API_URL}${keyword}`);
+}
+
 }

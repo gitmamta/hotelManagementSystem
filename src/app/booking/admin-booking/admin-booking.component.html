@@ -1,0 +1,54 @@
+<div class="card mt-3">
+  <div class="card-header bg-danger text-white">
+    <h4 class="mb-0">Hotel Booking List</h4>
+  </div>
+  <div class="card-body">
+    <table class="table table-bordered table-striped table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Room ID</th>
+          <th>User ID</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Phone No</th>
+          <th>Check-In</th>
+          <th>Check-Out</th>
+          <th>Guests</th>
+          <th>Room Type</th>
+          <th>Time</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let b of bookings">
+          <td>{{ b.roomId }}</td>
+          <td>{{ b.userId }}</td>
+          <td>{{ b.username }}</td>
+          <td>{{ b.email }}</td>
+          <td>{{ b.phoneNo }}</td>
+          <td>{{ b.checkInDate | date:'shortDate' }}</td>
+          <td>{{ b.checkOutDate | date:'shortDate' }}</td>
+          <td>{{ b.guest }}</td>
+          <td>{{ b.bookingType }}</td>
+          <td>{{ b.time }}</td>
+          <td>
+            <span *ngIf="b.confirmed" class="badge bg-success">Confirmed</span>
+            <span *ngIf="!b.confirmed" class="badge bg-warning">Pending</span>
+          </td>
+          <td>
+            <button 
+              *ngIf="!b.confirmed" 
+              class="btn btn-sm btn-success"
+              (click)="confirmBooking(b)">
+              Confirm
+            </button>
+          </td>
+        </tr>
+        <tr *ngIf="bookings.length === 0">
+          <td colspan="12" class="text-center">No bookings found</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

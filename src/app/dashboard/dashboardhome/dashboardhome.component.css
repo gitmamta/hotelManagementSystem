@@ -1,0 +1,24 @@
+.top-container{
+background-image:url("../../../assets/images/hotel.jpg");
+height:100vh;
+/* width:auto; */
+display: flex;
+align-items: center;
+justify-content: center;
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+}
+
+.nav-link.active {
+  color: #0d6efd !important;
+  
+}
+
+.nav-link{
+font-size:large;
+    
+}
+
+/* .card{
+    font-size: small; */

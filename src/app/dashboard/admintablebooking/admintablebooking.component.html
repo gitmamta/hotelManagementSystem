@@ -1,0 +1,52 @@
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h4 class="mb-0">Table Booking Details</h4>
+  </div>
+
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>id</th>
+          <th>Name</th>
+          <th>Phone No</th>
+          <th>Date</th>
+          <th>Guest</th>
+          <th>Time</th>
+          <th>Special Request</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let booking of bookings; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ booking.name }}</td>
+          <td>{{ booking.phone }}</td>
+          <td>{{ booking.date | date: 'shortDate' }}</td>
+          <td>{{ booking.guest }}</td>
+          <td>{{ booking.time }}</td>
+          <td>{{ booking.specialRequest }}</td>
+          <td>
+            <span *ngIf="booking.confirmed" class="badge bg-success">Confirmed</span>
+            <span *ngIf="!booking.confirmed" class="badge bg-warning text-dark">Pending</span>
+          </td>
+          <td>
+            <button 
+              *ngIf="!booking.confirmed" 
+              class="btn btn-sm btn-success"
+              (click)="confirmTableBooking(booking)">
+              Confirm
+            </button>
+          </td>
+        </tr>
+
+        <tr *ngIf="bookings.length === 0">
+          <td colspan="9" class="text-center">No bookings found</td>
+        
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

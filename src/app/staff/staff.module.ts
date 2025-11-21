@@ -6,7 +6,7 @@ import { ViewstaffComponent } from './viewstaff/viewstaff.component';
 import { EditstaffComponent } from './editstaff/editstaff.component';
 import { AddstaffComponent } from './addstaff/addstaff.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     StaffRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports:[
     AddstaffComponent,

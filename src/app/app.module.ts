@@ -11,7 +11,7 @@ import { AboutComponent } from './about/about.component';
 import { RoomsComponent } from './rooms/rooms.component';
 
 import { ContactComponent } from './contact/contact.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { activeGuard } from './activeguard.guard';
@@ -23,7 +23,7 @@ import { AdminComponent } from './admin/admin.component';
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    DashboardComponent,
+   
 
     AboutComponent,
     RoomsComponent,

@@ -1,36 +1,53 @@
+<div class="mb-3">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Search by name or ID..."
+    [(ngModel)]="searchText"
+    (input)="searchBackend()"
+  />
+</div>
+
+<!-- Single Staff Card -->
 <div *ngIf="showSingle && staff" class="card-body">
   <h2>Staff Details</h2>
-  <p><strong>ID:</strong> {{ staff.id }}</p>
-  <p><strong>Name:</strong> {{staff.staffName }}</p>
+  <p><strong>ID:</strong> {{ staff._id }}</p>
+  <p><strong>Name:</strong> {{ staff.staffName }}</p>
   <p><strong>Email:</strong> {{ staff.email }}</p>
-  <p><strong>Phone:</strong> {{ staff.phone }}</p>
+  <p><strong>Phone:</strong> {{ staff.phoneNo }}</p>
   <p><strong>Role:</strong> {{ staff.role }}</p>
   <button (click)="goBackToList()" class="btn btn-secondary btn-sm">Back to All Staff</button>
 </div>
 
-<div *ngIf="!showSingle && allStaff.length>0">
-
-<table border="2" class="table table-striped">
+<!-- Staff Table -->
+<div *ngIf="!showSingle && filteredStaff && filteredStaff.length > 0">
+  <table class="table table-striped" border="1">
     <thead>
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Phone</th>
-    <th>Role</th>
-    <th>Action</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let staff of allStaff">
-    <td>{{ staff.id }}</td>
-    <td>{{ staff.staffName }}</td>
-    <td>{{ staff.email }}</td>
-    <td>{{ staff.phoneNo }}</td>
-    <td>{{ staff.role }}</td>
-    <td><button (click)="viewStaff(staff.id)" class="btn btn-success">View</button></td>
-  </tr>
-  </tbody>
-</table>
+      <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Role</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let staff of filteredStaff; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ staff.staffName }}</td>
+        <td>{{ staff.email }}</td>
+        <td>{{ staff.phoneNo }}</td>
+        <td>{{ staff.role }}</td>
+        <td>
+          <button (click)="viewStaff(staff._id)" class="btn btn-success btn-sm">View</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
+<!-- No results -->
+<div *ngIf="!showSingle && filteredStaff && filteredStaff.length === 0" class="text-center">
+  <p>No staff found for "{{ searchText }}"</p>
+</div>
