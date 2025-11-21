@@ -55,7 +55,7 @@ export class ViewstaffComponent implements OnInit {
 
   // Back to table
   goBackToList() {
-    this.router.navigate(['/viewstaff']);
+    this.router.navigate(['/view']);
     this.staff = null;
     this.showSingle = false;
     this.loadAllStaff(); // reload table
