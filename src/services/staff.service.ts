@@ -22,7 +22,7 @@ export class StaffService {
     return this.http.patch<Staff>(`${this.API_URL}/${id}`, staffData);
   }
   searchStaff(keyword: string) {
-  return this.http.get<Staff>(`${this.API_URL}${keyword}`);
+  return this.http.get<Staff>(`${this.API_URL}$/search?keyword=${keyword}`);
 }
 
 }

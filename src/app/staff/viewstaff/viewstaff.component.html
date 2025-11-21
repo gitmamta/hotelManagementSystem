@@ -11,7 +11,7 @@
 <!-- Single Staff Card -->
 <div *ngIf="showSingle && staff" class="card-body">
   <h2>Staff Details</h2>
-  <p><strong>StaffID:</strong> {{ staff.StaffId }}</p>
+  <p><strong>StaffID:</strong> {{ staff.staffId }}</p>
   <p><strong>Name:</strong> {{ staff.staffName }}</p>
   <p><strong>Email:</strong> {{ staff.email }}</p>
   <p><strong>Phone:</strong> {{ staff.phoneNo }}</p>
@@ -40,7 +40,7 @@
         <td>{{ staff.phoneNo }}</td>
         <td>{{ staff.role }}</td>
         <td>
-          <button (click)="viewStaff(staff.staffId)" class="btn btn-success btn-sm">View</button>
+          <button (click)="viewStaff(staff._id)" class="btn btn-success btn-sm">View</button>
         </td>
       </tr>
     </tbody>

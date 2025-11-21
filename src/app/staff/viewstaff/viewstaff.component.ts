@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StaffService } from 'src/services/staff.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-viewstaff',
