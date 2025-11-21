@@ -33,7 +33,19 @@ export class TablebookingComponent implements OnInit{
     });
   }
   submitBooking() {
-    console.log(this.registerForm.value);
+  if (this.registerForm.invalid) {
+    alert('Please fill in all required fields correctly.');
+    return;
+  }
+
+  const bookingData = {
+    ...this.registerForm.value,
+    guest: Number(this.registerForm.value.guest),
+    phoneNo: String(this.registerForm.value.phoneNo)
+  };
+
+  console.log('Submitting booking:', bookingData);
+
   
 
     this.http

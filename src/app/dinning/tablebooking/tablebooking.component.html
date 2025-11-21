@@ -61,7 +61,7 @@
 
             <div>
                 <label for="phoneNo">Phone No.:</label>
-                <input type="phoneNo" placeholder="Enter phone no" class="form-control" formControlName="phoneNo" />
+                <input type="text" placeholder="Enter phone no" class="form-control" formControlName="phoneNo" />
                 <span
                     *ngIf="registerForm.get('phoneNo').hasError('required') && registerForm.get('phoneNo').touched">Please
                     Enter phone no</span>
