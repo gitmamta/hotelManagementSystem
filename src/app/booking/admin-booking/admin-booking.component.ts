@@ -17,7 +17,7 @@ export class AdminBookingComponent {
     });
   }
   confirmBooking(booking: any) {
-  this.bookingService.patchDataById(booking.id, { confirmed: true }).subscribe({
+  this.bookingService.patchDataById(booking._id, { confirmed: true }).subscribe({
     next: (updatedBooking) => {
       booking.confirmed = true; // update the UI
       alert('Booking confirmed!');
