@@ -1,33 +1,36 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-
 import { RoomsComponent } from './rooms/rooms.component';
 
 import { ContactComponent } from './contact/contact.component';
 
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './auth/login/login.component';
 import { activeGuard } from './activeguard.guard';
-import { AdminComponent } from './admin/admin.component';
+
 import { adminGuard } from 'adminguard.guard';
 import { userGuard } from 'userguard.guard';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full',
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
 
   {
-    path: 'admin',
-    component: AdminComponent,
-    canActivate: [adminGuard],
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
+  { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'auth/login' }, // fallback
+
+  {
+    path: 'booking',
+    loadChildren: () =>
+      import('./booking/booking.module').then((m) => m.BookingModule),
+  },
+
   {
     path: 'rooms',
     component: RoomsComponent,
@@ -40,18 +43,6 @@ const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent,
-  },
-
-  {
-    path: 'dashboard',
-    loadChildren: () =>
-      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
-  },
-
-  {
-    path: 'booking',
-    loadChildren: () =>
-      import('./booking/booking.module').then((m) => m.BookingModule),
   },
 
   {

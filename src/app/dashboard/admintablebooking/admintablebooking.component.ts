@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { tableService } from 'src/services/table.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-admintablebooking',
@@ -8,7 +9,7 @@ import { tableService } from 'src/services/table.service';
 })
 export class AdmintablebookingComponent implements OnInit {
 bookings: any[] = [];
-constructor(private tableservice: tableService) {}
+constructor(private tableservice: tableService,private location:Location) {}
 
   
     ngOnInit() {
@@ -26,5 +27,9 @@ confirmTableBooking(booking: any) {
     error: (err) => console.error('Error confirming table', err),
   });
 }
+goBack() {
+    this.location.back();
+  }
+
 
 }

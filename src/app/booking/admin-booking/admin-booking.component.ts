@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BookingService } from 'src/services/booking.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-admin-booking',
@@ -9,7 +10,7 @@ import { BookingService } from 'src/services/booking.service';
 export class AdminBookingComponent {
   bookings: any[] = [];
 
-  constructor(private bookingService: BookingService) {}
+  constructor(private bookingService: BookingService,private location:Location) {}
 
   ngOnInit() {
     this.bookingService.getAllbookings().subscribe((data) => {
@@ -25,5 +26,8 @@ export class AdminBookingComponent {
     error: (err) => console.error('Error confirming booking', err),
   });
 }
+goBack() {
+    this.location.back();
+  }
 
 }

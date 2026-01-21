@@ -2,101 +2,147 @@
 
 <div id="roomCarousel" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
-
     <div class="carousel-item active">
       <div class="d-flex gap-3 justify-content-center">
-        <img src="assets/images/room3.webp" class="d-block w-50" alt="Room 1">
-        <img src="assets/images/room4.webp" class="d-block w-50" alt="Room 2">
+        <img src="assets/images/room3.webp" class="d-block w-50" alt="Room 1" />
+        <img src="assets/images/room4.webp" class="d-block w-50" alt="Room 2" />
       </div>
     </div>
 
     <div class="carousel-item">
       <div class="d-flex gap-3 justify-content-center">
-        <img src="assets/images/room5.jpg" class="d-block w-50" alt="Room 3">
-        <img src="assets/images/room6.webp" class="d-block w-50" alt="Room 4">
+        <img src="assets/images/room5.jpg" class="d-block w-50" alt="Room 3" />
+        <img src="assets/images/room6.webp" class="d-block w-50" alt="Room 4" />
       </div>
     </div>
-
   </div>
 
   <!-- Controls -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#roomCarousel" data-bs-slide="prev">
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#roomCarousel"
+    data-bs-slide="prev"
+  >
     <span class="carousel-control-prev-icon"></span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#roomCarousel" data-bs-slide="next">
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#roomCarousel"
+    data-bs-slide="next"
+  >
     <span class="carousel-control-next-icon"></span>
   </button>
 </div>
 <!-- ....... -->
 
+<div class="bookingContainer mt-4">
+  <div class="booking-container">
+    <h1 class="text-center bw-bold mt-4">Hotel Booking</h1>
+    <form
+      (ngSubmit)="submitBooking()"
+      [formGroup]="registerForm"
+      class="d-flex flex-column gap-3"
+    >
+      <div>
+        <label for="StaffId">StaffId</label>
+        <input
+          type="text"
+          placeholder="Enter user Id"
+          class="form-control"
+          formControlName="staffId"
+        />
+        <span
+          *ngIf="
+            registerForm.get('staffId').hasError('required') &&
+            registerForm.get('staffId').touched
+          "
+          >Please Enter staffId</span
+        >
+      </div>
+      <div>
+        <label for="staffName">Username</label>
+        <input
+          type="text"
+          placeholder="Enter username"
+          class="form-control"
+          formControlName="staffName"
+        />
+        <span
+          *ngIf="
+            registerForm.get('staffName').hasError('required') &&
+            registerForm.get('staffName').touched
+          "
+          >Please Enter username</span
+        >
+      </div>
 
+      <div>
+        <label for="email">email</label>
+        <input
+          type="email"
+          placeholder="Enter email"
+          class="form-control"
+          formControlName="email"
+        />
+        <span
+          *ngIf="
+            registerForm.get('email').hasError('required') &&
+            registerForm.get('email').touched
+          "
+          >Please Enter email</span
+        >
+        <span
+          *ngIf="
+            registerForm.get('email').hasError('email') &&
+            registerForm.get('email').touched
+          "
+          >Please Enter valid email</span
+        >
+      </div>
+      <div>
+        <label for="phoneNo">Phone No.:</label>
+        <input
+          type="number"
+          placeholder="Enter phone no"
+          class="form-control"
+          formControlName="phoneNo"
+        />
+        <span
+          *ngIf="
+            registerForm.get('phoneNo').hasError('required') &&
+            registerForm.get('phoneNo').touched
+          "
+          >Please Enter phone no</span
+        >
+        <span
+          *ngIf="
+            registerForm.get('phoneNo').hasError('minlength') &&
+            registerForm.get('phoneNo').touched
+          "
+          >Please Enter valid phone no</span
+        >
+      </div>
 
+      <div>
+        <label for="bookingType">Role Type:</label>
+        <select formControlName="role">
+          <option value="manager">Manager</option>
+          <option value="housekeeping">Housekeeping</option>
+          <option value="receptionist">Event</option>
+        </select>
+      </div>
 
-
-<div class="bookingContainer mt-4" >
-    <div class="booking-container">
-        <h1 class="text-center bw-bold mt-4">Hotel Booking</h1>
-        <form (ngSubmit)="submitBooking()" [formGroup]="registerForm" class="d-flex flex-column gap-3">
-            
-
-            <div>
-                <label for="StaffId">StaffId</label>
-                <input type="text" placeholder="Enter user Id" class="form-control" formControlName="staffId" />
-                <span
-                    *ngIf="registerForm.get('staffId').hasError('required') && registerForm.get('staffId').touched">Please
-                    Enter staffId</span>
-            </div>
-            <div>
-                <label for="staffName">Username</label>
-                <input type="text" placeholder="Enter username" class="form-control" formControlName="staffName" />
-                <span
-                    *ngIf="registerForm.get('staffName').hasError('required') && registerForm.get('staffName').touched">Please
-                    Enter username</span>
-            </div>
-
-
-
-            <div>
-                <label for="email">email</label>
-                <input type="email" placeholder="Enter email" class="form-control" formControlName="email" />
-                <span *ngIf="registerForm.get('email').hasError('required') && registerForm.get('email').touched">Please
-                    Enter email</span>
-                <span *ngIf="registerForm.get('email').hasError('email') && registerForm.get('email').touched">Please
-                    Enter valid email</span>
-
-            </div>
-            <div>
-                <label for="phoneNo">Phone No.:</label>
-                <input type="number" placeholder="Enter phone no" class="form-control" formControlName="phoneNo" />
-                <span
-                    *ngIf="registerForm.get('phoneNo').hasError('required') && registerForm.get('phoneNo').touched">Please
-                    Enter phone no</span>
-                <span
-                    *ngIf="registerForm.get('phoneNo').hasError('minlength') && registerForm.get('phoneNo').touched">Please
-                    Enter valid phone no</span>
-            </div>
-
- <div>
-                <label for="bookingType">Role Type:</label>
-                <select formControlName="role">
-                    <option value="manager">Manager</option>
-                    <option value="housekeeping">Housekeeping</option>
-                    <option value="receptionist">Event</option>
-
-                </select>
-
-            </div>
-
-
-           
-
-
-            
-            <div>
-                <button type="submit" [disabled]="!registerForm.valid" class="btn btn-danger">Submit</button>
-            </div>
-
-
-        </form>
-    </div>
+      <div>
+        <button
+          type="submit"
+          [disabled]="!registerForm.valid"
+          class="btn btn-danger"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
 </div>

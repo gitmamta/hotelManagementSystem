@@ -3,9 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MenulistComponent } from './menulist/menulist.component';
 import { TablebookingComponent } from './tablebooking/tablebooking.component';
 
-
 const routes: Routes = [
- 
   {
     path: '',
     redirectTo: 'menu',
@@ -16,19 +14,18 @@ const routes: Routes = [
     component: MenulistComponent,
   },
   {
-    path:'menu/:id',
-    component:MenulistComponent
-  },{
-    path:'table',
-    component:TablebookingComponent
-  },{
-    path:'table/:id',
-    component:TablebookingComponent
-
-  }
+    path: 'menu/:id',
+    component: MenulistComponent,
+  },
+  {
+    path: 'table',
+    component: TablebookingComponent,
+  },
+  {
+    path: 'table/:id',
+    component: TablebookingComponent,
+  },
 ];
-
-
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
