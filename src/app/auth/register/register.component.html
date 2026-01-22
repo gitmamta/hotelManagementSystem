@@ -1,6 +1,6 @@
 <div class="container mt-5">
   <div class="row justify-content-center">
-    <div class="col-md-4">
+    <div class="col-md-6">
 
       <div class="card shadow-sm">
         <div class="card-body">
@@ -9,51 +9,136 @@
 
           <form [formGroup]="registerForm" (ngSubmit)="onRegisterClicked()">
 
-            <!-- Username -->
+            <!-- First Name -->
             <div class="mb-3">
-              <label class="form-label">Username</label>
-              <input type="text" class="form-control" formControlName="username" placeholder="Enter username">
-              <small class="text-danger" 
-                     *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.invalid">
-                Username is required.
-              </small>
+              <label class="form-label">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="fname"
+                placeholder="Enter first name"
+              >
+              <div
+                *ngIf="registerForm.get('fname')?.touched && registerForm.get('fname')?.invalid"
+                class="text-danger mt-1"
+              >
+                First name is required.
+              </div>
+            </div>
+
+            <!-- Last Name -->
+            <div class="mb-3">
+              <label class="form-label">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="lname"
+                placeholder="Enter last name"
+              >
+              <div
+                *ngIf="registerForm.get('lname')?.touched && registerForm.get('lname')?.invalid"
+                class="text-danger mt-1"
+              >
+                Last name is required.
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                formControlName="email"
+                placeholder="Enter email"
+              >
+              <div
+                *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid"
+                class="text-danger mt-1"
+              >
+                <div *ngIf="registerForm.get('email')?.errors?.['required']">
+                  Email is required.
+                </div>
+                <div *ngIf="registerForm.get('email')?.errors?.['email']">
+                  Please enter a valid email.
+                </div>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="mb-3">
+              <label class="form-label">Phone</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="phone"
+                placeholder="Enter phone number"
+              >
+              <div
+                *ngIf="registerForm.get('phone')?.touched && registerForm.get('phone')?.invalid"
+                class="text-danger mt-1"
+              >
+                Phone is required.
+              </div>
             </div>
 
             <!-- Password -->
             <div class="mb-3">
               <label class="form-label">Password</label>
-              <input type="password" class="form-control" formControlName="password" placeholder="Enter password">
-              <small class="text-danger" 
-                     *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['required']">
-                Password is required.
-              </small>
-              <small class="text-danger" 
-                     *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['minlength']">
-                Password must be at least 4 characters.
-              </small>
+              <input
+                type="password"
+                class="form-control"
+                formControlName="password"
+                placeholder="Enter password"
+              >
+              <div
+                *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid"
+                class="text-danger mt-1"
+              >
+                <div *ngIf="registerForm.get('password')?.errors?.['required']">
+                  Password is required.
+                </div>
+                <div *ngIf="registerForm.get('password')?.errors?.['minlength']">
+                  Password must be at least 6 characters.
+                </div>
+              </div>
             </div>
 
             <!-- Role -->
             <div class="mb-3">
               <label class="form-label">Role</label>
               <select class="form-select" formControlName="role">
-                <option *ngFor="let r of roles" [value]="r">{{ r }}</option>
+                <option value="User">User</option>
+                <option value="Seller">Seller</option>
+                <option value="Admin">Admin</option>
               </select>
-              <small class="text-danger" 
-                     *ngIf="registerForm.get('role')?.touched && registerForm.get('role')?.invalid">
+              <div
+                *ngIf="registerForm.get('role')?.touched && registerForm.get('role')?.invalid"
+                class="text-danger mt-1"
+              >
                 Role is required.
-              </small>
+              </div>
             </div>
 
-            <!-- Submit -->
-            <button type="submit" class="btn btn-success w-100">Register</button>
+            <!-- Error Message -->
+            <div *ngIf="error" class="alert alert-danger">
+              {{ error }}
+            </div>
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              class="btn btn-success w-100"
+              [disabled]="registerForm.invalid"
+            >
+              Register
+            </button>
+
           </form>
 
-          <!-- Link to Login -->
           <p class="text-center mt-3">
             Already have an account? <a routerLink="/auth/login">Login here</a>
           </p>
-          
 
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/services/auth.service';
 import { Router } from '@angular/router';
 
@@ -17,26 +17,48 @@ export class LoginComponent {
     private authService: AuthService,
     private router: Router
   ) {
-   
     this.loginForm = new FormGroup({
-      username: new FormControl('', Validators.required),
-      password: new FormControl('', [Validators.required, Validators.minLength(4)])
+      email: new FormControl('', [
+        Validators.required,
+        Validators.email  // make sure it's a real email format :contentReference[oaicite:0]{index=0}
+      ]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(4)
+      ])
     });
   }
 
   onLoginClicked() {
+    // First clear any previous error
+    this.error = '';
+
     if (this.loginForm.invalid) {
-      this.error ='Please fill in all fields';
+      this.error = 'Please fill in all fields correctly.';
       return;
     }
 
-    const { username, password } = this.loginForm.value;
+    const { email, password } = this.loginForm.value;
+    console.log('Attempting login with:', { email, password });
 
-    console.log('Login function called!', this.loginForm.value);
+    this.authService.login(email, password).subscribe({
+      next: () => {
+        // Navigate to dashboard or any protected route
+        this.router.navigate(['/dashboard']);
+      },
+      error: (err: any) => {
+        // Log the full error for debugging
+        console.error('Login error:', err);
 
-    this.authService.login(username, password).subscribe({
-      next: () => this.router.navigate(['/dashboard']),
-      error: (err: any) => (this.error = err.error.msg || 'Login failed'),
+        // Show meaningful error message
+        if (err.status === 0) {
+          this.error = 'Unable to connect to server.';
+        } else if (err.status >= 400 && err.status < 500) {
+          this.error = err.error?.message || 'Invalid credentials.';
+        } else {
+          this.error = 'Something went wrong. Try again later.';
+        }
+      }
     });
   }
 }

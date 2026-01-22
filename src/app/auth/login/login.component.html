@@ -11,15 +11,15 @@
 
             <!-- Username -->
             <div class="mb-3">
-              <label class="form-label">Username</label>
+              <label class="form-label">Email</label>
               <input
                 type="text"
                 class="form-control"
-                formControlName="username"
+                formControlName="email"
                 placeholder="Enter username"
               >
               <div
-                *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.invalid"
+                *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid"
                 class="text-danger mt-1"
               >
                 Username is required.

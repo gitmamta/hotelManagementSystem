@@ -6,35 +6,40 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-
+  
   registerForm: FormGroup;
-  roles = ['customer', 'admin'];
   error: string = '';
+  roles = ['User', 'Seller', 'Admin'];
 
   constructor(
     private authService: AuthService,
     private router: Router
   ) {
     this.registerForm = new FormGroup({
-      username: new FormControl('', Validators.required),
-      password: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      role: new FormControl('customer', Validators.required)
+      fname: new FormControl('', Validators.required),
+      lname: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      phone: new FormControl('', Validators.required),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      role: new FormControl('User', Validators.required)
     });
   }
 
   onRegisterClicked() {
     if (this.registerForm.invalid) {
-      this.error = 'Please fill in all fields correctly';
+      this.error = 'Please fill in all fields correctly.';
       return;
     }
 
-    const { username, password, role } = this.registerForm.value;
+    const userData = this.registerForm.value;
+    console.log('Register data:', userData);
 
-    this.authService.register(username, password, role).subscribe({
-      next: () => this.router.navigate(['/dashboard']),
-      error: (err) => this.error = err.error.msg || 'Registration failed'
+    this.authService.register(userData).subscribe({
+      next: () => this.router.navigate(['/auth/login']),
+      error: (err: any) => this.error = err.error?.msg || 'Registration failed'
     });
   }
 }
