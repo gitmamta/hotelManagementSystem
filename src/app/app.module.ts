@@ -12,7 +12,8 @@ import { RoomsComponent } from './rooms/rooms.component';
 
 import { ContactComponent } from './contact/contact.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 
@@ -35,7 +36,13 @@ import { HttpClientModule } from '@angular/common/http';
     
   ],
   imports: [BrowserModule, AppRoutingModule,HttpClientModule],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

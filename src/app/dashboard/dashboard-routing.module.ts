@@ -17,32 +17,41 @@ const routes: Routes = [
   {
     path: 'adminbooking',
     component: AdminBookingComponent,
-    // canActivate: [AdminGuard], // optional guard
+    canActivate: [adminGuard], // optional guard
   },
  
   {
     path: 'add',
     component: AddstaffComponent,
   },
-  { path: 'editstaff/:id', component:EditstaffComponent },
+  { path: 'editstaff/:id', component:EditstaffComponent,
+     canActivate: [adminGuard],
+   },
+  
 
   {
     path: 'edit',
     component: EditstaffComponent,
+     canActivate: [adminGuard],
   },
   {
     path: 'edit/:id',
     component: EditstaffComponent,
+     canActivate: [adminGuard],
   },
   {
     path: 'view',
     component:ViewstaffComponent,
+     canActivate: [adminGuard],
   },
-  { path: 'view/:id', component: ViewstaffComponent },
+  { path: 'view/:id', component: ViewstaffComponent,
+     canActivate: [adminGuard],
+
+  },
    {
     path: 'tableBooking',
     component:AdmintablebookingComponent,
-    // canActivate: [AdminGuard], // optional guard
+    canActivate: [adminGuard], // optional guard
   },
 ];
 

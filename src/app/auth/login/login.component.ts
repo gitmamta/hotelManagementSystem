@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/services/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,50 +15,45 @@ export class LoginComponent {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     this.loginForm = new FormGroup({
-      email: new FormControl('', [
-        Validators.required,
-        Validators.email  // make sure it's a real email format :contentReference[oaicite:0]{index=0}
-      ]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(4)
-      ])
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(4)])
     });
   }
 
   onLoginClicked() {
-    // First clear any previous error
-    this.error = '';
+  this.error = '';
 
-    if (this.loginForm.invalid) {
-      this.error = 'Please fill in all fields correctly.';
-      return;
-    }
+  if (this.loginForm.invalid) {
+    this.error = 'Please fill in all fields correctly.';
+    return;
+  }
 
-    const { email, password } = this.loginForm.value;
-    console.log('Attempting login with:', { email, password });
+  const { email, password } = this.loginForm.value;
 
-    this.authService.login(email, password).subscribe({
-      next: () => {
-        // Navigate to dashboard or any protected route
+  this.authService.login(email, password).subscribe({
+    next: (res) => {
+      const returnUrl = this.route.snapshot.queryParams['returnUrl'];
+
+      if (returnUrl && !returnUrl.includes('login')) {
+        this.router.navigateByUrl(returnUrl);
+      } else if (res.user.role === 'Admin') {
         this.router.navigate(['/dashboard']);
-      },
-      error: (err: any) => {
-        // Log the full error for debugging
-        console.error('Login error:', err);
-
-        // Show meaningful error message
-        if (err.status === 0) {
-          this.error = 'Unable to connect to server.';
-        } else if (err.status >= 400 && err.status < 500) {
-          this.error = err.error?.message || 'Invalid credentials.';
-        } else {
-          this.error = 'Something went wrong. Try again later.';
-        }
+      } else {
+        this.router.navigate(['/booking']);
       }
-    });
+    },
+
+    error: (err) => {
+      console.error('Login error:', err);
+      this.error =
+        err.status === 0
+          ? 'Unable to connect to server.'
+          : err.error?.message || 'Invalid credentials.';
+    }
+  });
   }
 }

@@ -4,7 +4,7 @@ import { AllbookingComponent } from './allbooking/allbooking.component';
 import { EditbookingComponent } from './editbooking/editbooking.component';
 import { CancelbookingComponent } from './cancelbooking/cancelbooking.component';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { activeGuard } from '../activeguard.guard';
+import { authGuard } from '../activeguard.guard';
 import { userGuard } from 'userguard.guard';
 
 const routes: Routes = [
@@ -12,27 +12,31 @@ const routes: Routes = [
   {
     path: '',
     component:AllbookingComponent,
-    // canActivate:[userGuard]
+    canActivate:[authGuard]
   },
   
   
   {
     path:'edit',
-    component:EditbookingComponent
+    component:EditbookingComponent,
+    canActivate:[authGuard]
   },
   {
     path:'edit/:id',
-    component:EditbookingComponent
+    component:EditbookingComponent,
+    canActivate:[authGuard]
   },
 
 
   {
     path:'cancel',
-    component:CancelbookingComponent
+    component:CancelbookingComponent,
+    canActivate:[authGuard]
   },
   {
     path:'cancel/:id',
-    component:CancelbookingComponent
+    component:CancelbookingComponent,
+    canActivate:[authGuard]
   },
   
 ];

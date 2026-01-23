@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Booking } from 'src/app/models/booking.model';
-// import { environment } from '../environments/environment.prod';
 import { environment } from '../environments/environment.prod';
+// import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
