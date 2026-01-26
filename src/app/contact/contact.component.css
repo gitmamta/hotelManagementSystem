@@ -1,0 +1,9 @@
+.contact-section {
+  background: linear-gradient(135deg, #ffefba, #ffffff);
+  padding: 50px 0;
+}
+
+.contact-section .card {
+  background-color: rgba(255, 255, 255, 0.95); /* slightly transparent */
+  border-radius: 15px;
+}

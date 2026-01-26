@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';//using animation 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -35,7 +36,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
      
     
   ],
-  imports: [BrowserModule, AppRoutingModule,HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule,HttpClientModule,BrowserAnimationsModule],//here brwoseranimation for animation
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

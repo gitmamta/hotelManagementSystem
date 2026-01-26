@@ -2,12 +2,21 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { rooms } from 'src/utils/data1';
 
+
 @Component({
   selector: 'app-dashboardhome',
   templateUrl: './dashboardhome.component.html',
-  styleUrls: ['./dashboardhome.component.css']
+  styleUrls: ['./dashboardhome.component.css'],
+   
 })
 export class DashboardhomeComponent {
+
+
+  currentView:string='home'//default view
+
+  showView(view:string){
+    this.currentView=view;
+  }
 
   roomsOccupied='15/30';
   data: any =rooms;

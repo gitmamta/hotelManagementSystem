@@ -1,143 +1,118 @@
 <!-- // -->
 
-<div id="roomCarousel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
+<div class="top-container"></div>
 
-    <div class="carousel-item active">
-      <div class="d-flex gap-3 justify-content-center">
-        <img src="assets/images/room3.webp" class="d-block w-50" alt="Room 1">
-        <img src="assets/images/room4.webp" class="d-block w-50" alt="Room 2">
+<section class="proContainer" [@listAnimation]>
+  <div class="row g-5">
+    <div class="col-md-6">
+      <div class="card h-100 text-center">
+        <img
+          [src]="
+            'https://expressinnindia.com/wp-content/uploads/2024/07/Freesia-God-20.jpg'
+          "
+          class="img-fluid"
+        />
       </div>
     </div>
 
-    <div class="carousel-item">
-      <div class="d-flex gap-3 justify-content-center">
-        <img src="assets/images/room5.jpg" class="d-block w-50" alt="Room 3">
-        <img src="assets/images/image7.jpg" class="d-block w-50" alt="Room 4">
+    <div class="col-md-6">
+      <div class="card h-100 text-center p-1">
+        <h2 class="mb-2">Welcome to Hotel Royal Residency</h2>
+        <p>
+          <strong>The Best Hotel in Mumbai Hospitality is more than just a welcome drink
+          or a complimentary gift—it’s about creating an experience that stays
+          with you. At Hotel Mumbai Grand,</strong> we take pride in being gracious
+          hosts, blending modern comfort, urban sophistication, and heartfelt
+          care to make your stay unforgettable. Inspired by the spirit of
+          Mumbai—a city that connects people, cultures, and dreams—we aim to
+          build bridges of our own, offering a space where you can relax,
+          recharge, and reconnect with yourself. <strong>Our hotel features 70
+          beautifully designed rooms, including double and triple-bed options,
+          all thoughtfully furnished with contemporary décor and modern
+          amenities.</strong> Whether it’s the inviting ambience, personalized service,
+          or genuine hospitality, every detail of your stay is crafted to ensure
+          you keep coming back. Experience the perfect blend of comfort, style,
+          and care at Hotel Mumbai Grand—where every guest is treated like
+          family.
+        </p>
+
+        <div class="mt-3">
+          <a href="/contact" class="btn btn-success btn-sm"> Contact Us </a>
+        </div>
       </div>
     </div>
 
-  </div>
 
-  <!-- Controls -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#roomCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#roomCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
-</div>
-<!-- ....... -->
+    <section class="container my-5">
+  <div class="row justify-content-center">
+    <!-- 6 columns on md and up (half width), full width on smaller -->
+    <div class="col-12 col-md-6">
+      <div class="card shadow-sm p-4">
+        <h3 class="text-center fw-bold mb-4">Hotel Booking</h3>
 
+        <form (ngSubmit)="submitBooking()" [formGroup]="registerForm" class="row g-3 custom-form">
 
+          <div class="col-12">
+            <label class="form-label">Room ID</label>
+            <input type="text" class="form-control" formControlName="roomId">
+          </div>
 
+          <div class="col-12">
+            <label class="form-label">User ID</label>
+            <input type="text" class="form-control" formControlName="userId">
+          </div>
 
+          <div class="col-12">
+            <label class="form-label">Username</label>
+            <input type="text" class="form-control" formControlName="username">
+          </div>
 
-<div class="bookingContainer mt-4" >
-    <div class="booking-container">
-        <h1 class="text-center fw-bold mt-4">Hotel Booking</h1>
-        <form (ngSubmit)="submitBooking()" [formGroup]="registerForm" class="d-flex flex-column gap-3 mb-4 p-4 custom-form rounded shadow">
-            <div>
-                <label for="roomId">RoomId</label>
-                <input type="text" placeholder="Enter room Id" class="form-control" formControlName="roomId" />
-                <span
-                    *ngIf="registerForm.get('roomId').hasError('required') && registerForm.get('roomId').touched">Please
-                    Enter roomId</span>
-            </div>
+          <div class="col-12">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="email">
+          </div>
 
-            <div>
-                <label for="userId">UserId</label>
-                <input type="text" placeholder="Enter user Id" class="form-control" formControlName="userId" />
-                <span
-                    *ngIf="registerForm.get('userId').hasError('required') && registerForm.get('userId').touched">Please
-                    Enter userId</span>
-            </div>
-            <div>
-                <label for="username">Username</label>
-                <input type="username" placeholder="Enter username" class="form-control" formControlName="username" />
-                <span
-                    *ngIf="registerForm.get('username').hasError('required') && registerForm.get('username').touched">Please
-                    Enter username</span>
-            </div>
+          <div class="col-12">
+            <label class="form-label">Phone No.</label>
+            <input type="text" class="form-control" formControlName="phoneNo">
+          </div>
 
+          <div class="col-12">
+            <label class="form-label">Check‑In Date</label>
+            <input type="date" class="form-control" formControlName="checkInDate">
+          </div>
 
+          <div class="col-12">
+            <label class="form-label">Check‑Out Date</label>
+            <input type="date" class="form-control" formControlName="checkOutDate">
+          </div>
 
-            <div>
-                <label for="email">email</label>
-                <input type="email" placeholder="Enter email" class="form-control" formControlName="email" />
-                <span *ngIf="registerForm.get('email').hasError('required') && registerForm.get('email').touched">Please
-                    Enter email</span>
-                <span *ngIf="registerForm.get('email').hasError('email') && registerForm.get('email').touched">Please
-                    Enter valid email</span>
+          <div class="col-12">
+            <label class="form-label">Guests</label>
+            <input type="number" class="form-control" formControlName="guest">
+          </div>
 
-            </div>
-            <div>
-                <label for="phoneNo">Phone No.:</label>
-                <input type="phoneNo" placeholder="Enter phone no" class="form-control" formControlName="phoneNo" />
-                <span
-                    *ngIf="registerForm.get('phoneNo').hasError('required') && registerForm.get('phoneNo').touched">Please
-                    Enter phone no</span>
-                <span
-                    *ngIf="registerForm.get('phoneNo').hasError('minlength') && registerForm.get('phoneNo').touched">Please
-                    Enter valid phone no</span>
-            </div>
+          <div class="col-12">
+            <label class="form-label">Room Type</label>
+            <select class="form-select" formControlName="bookingType">
+              <option value="standard">Standard</option>
+              <option value="deluxe">Deluxe</option>
+              <option value="suite">Suite</option>
+            </select>
+          </div>
 
+          <div class="col-12">
+            <label class="form-label">Time</label>
+            <input type="time" class="form-control" formControlName="time">
+          </div>
 
+          <div class="col-12 text-center mt-3">
+           <button class="btn btn-danger w-50 mx-auto mb-2">Submit</button>
 
-
-            <div>
-                <label for="CheckInDate">CheckInDate</label>
-                <input type="date" placeholder="Enter date" class="form-control" formControlName="checkInDate" />
-                <span
-                    *ngIf="registerForm.get('checkInDate').hasError('required') && registerForm.get('checkInDate').touched">Please
-                    Enter checkIn date </span>
-            </div>
-            <div>
-                <label for="checkOutDate">ChecOutDate</label>
-                <input type="date" placeholder="Enter date" class="form-control" formControlName="checkOutDate" />
-                <span
-                    *ngIf="registerForm.get('checkOutDate').hasError('required') && registerForm.get('checkOutDate').touched">Please
-                    Enter checkOut date </span>
-            </div>
-
-            <div>
-                <label for="guest">Guest:</label>
-                <input type="number" placeholder="Enter no of guests" class="form-control" formControlName="guest" />
-
-                <span *ngIf="registerForm.get('guest').hasError('required') && registerForm.get('guest').touched">
-                    Please enter number of guests
-                </span>
-                <span *ngIf="registerForm.get('guest').hasError('min') && registerForm.get('guest').touched">
-                    Minimum guests is 2
-                </span>
-                <span *ngIf="registerForm.get('guest').hasError('max') && registerForm.get('guest').touched">
-                    Maximum guests allowed is 50
-                </span>
-            </div>
-
-            <div>
-                <label for="bookingType">Room Type:</label>
-                <select formControlName="bookingType">
-                    <option value="meeting">Meeting</option>
-                    <option value="dinner">Dinner</option>
-                    <option value="event">Event</option>
-
-                </select>
-
-            </div>
-
-
-            <div>
-                <label for="time">Time</label>
-                <input type="time" placeholder="Enter time" class="form-control" formControlName="time" />
-                <span *ngIf="registerForm.get('time').hasError('required') && registerForm.get('time').touched">Please
-                    Enter time</span>
-            </div>
-            <div>
-                <button type="submit" [disabled]="!registerForm.valid" class="btn btn-danger">Submit</button>
-            </div>
-
+          </div>
 
         </form>
+      </div>
     </div>
-</div>
+  </div>
+</section>

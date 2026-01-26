@@ -1,4 +1,7 @@
+import { trigger, style, transition, animate,stagger,query} from '@angular/animations';//for animation
+
 import { Component, OnInit } from '@angular/core';
+
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment.prod';
@@ -7,6 +10,16 @@ import { environment } from 'src/environments/environment.prod';
   selector: 'app-allbooking',
   templateUrl: './allbooking.component.html',
   styleUrls: ['./allbooking.component.css'],
+  animations: [    //for animation
+     trigger('listAnimation', [
+      transition(':enter', [
+        query('.card', [
+          style({ opacity: 0, transform: 'translateY(20px)' }),
+          stagger(200, [animate('0.5s ease-in', style({ opacity: 1, transform: 'translateY(0)' }))])
+        ])
+        ])
+      ])
+    ]
 })
 export class AllbookingComponent implements OnInit {
   registerForm: FormGroup | any;

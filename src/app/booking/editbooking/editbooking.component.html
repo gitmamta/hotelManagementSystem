@@ -72,7 +72,7 @@
           Please enter number of guests
         </span>
         <span *ngIf="registerForm.get('guest')?.touched && registerForm.get('guest')?.hasError('min')" class="text-danger">
-          Minimum guests is 1
+          Minimum guests is 2
         </span>
         <span *ngIf="registerForm.get('guest')?.touched && registerForm.get('guest')?.hasError('max')" class="text-danger">
           Maximum guests allowed is 50
@@ -82,6 +82,7 @@
       <div>
         <label for="bookingType">Room Type</label>
         <select class="form-select" formControlName="bookingType">
+          <option value="" disabled>Select booking type</option>
           <option value="meeting">Meeting</option>
           <option value="dinner">Dinner</option>
           <option value="event">Event</option>
