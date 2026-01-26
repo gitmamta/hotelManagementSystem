@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --configuration production --base-href / && copy _redirects dist/angularProject/",
+    "build":"ng build --configuration production --base-href /",
+
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
