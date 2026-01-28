@@ -1,27 +1,99 @@
-# AngularProject
+# Hotel Management System
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+A full-stack Hotel Management System built using Angular 16, Node.js, Express, and MongoDB.  
+The application provides secure booking management for hotels, dining areas, and meeting rooms with an admin-controlled workflow.
 
-## Development server
+## Live Demo
+- Frontend: https://mamtapalace.netlify.app/
+- Backend: https://node-backend-uhgx.onrender.com
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tech Stack
 
-## Code scaffolding
+### Frontend
+- Angular 16.2.0
+- TypeScript
+- Bootstrap
+- Angular Animations
+- HTTP Interceptor
+- Session Storage
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Backend
+- Node.js
+- Express.js
+- MongoDB (Mongoose)
+- JWT Authentication
 
-## Build
+## Features
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Authentication & Security
+- JWT-based authentication
+- Session storage for token management
+- Role-based access using Admin Guards
+- Protected routes
 
-## Running unit tests
+### Admin Features
+- CRUD operations for bookings
+- Manage dining and meeting area bookings
+- Secure admin-only access
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Booking System
+- Hotel room booking
+- Dining area booking
+- Meeting room booking
+- Table booking with messaging functionality
 
-## Running end-to-end tests
+### UI/UX
+- Responsive design using Bootstrap
+- Smooth UI transitions with Angular Animations
+- Modular Angular architecture
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Project Structure
 
-## Further help
+hotel-management-system/
+frontend/
+backend/
+README.md
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Installation
+
+### Clone Repository
+https://github.com/gitmamta/hotelManagementSystem.git
+
+### Backend Setup
+cd backend  
+npm install  
+npm start  
+
+Create a `.env` file:
+PORT=5000  
+MONGO_URI=your_mongodb_connection_string  
+JWT_SECRET=your_jwt_secret  
+
+### Frontend Setup
+cd frontend  
+npm install  
+ng serve  
+
+Open http://localhost:4200
+
+## Environment Configuration
+
+Update API URL in  
+frontend/src/environments/environment.ts
+
+export const environment = {
+  apiUrl: 'http://localhost:5000/api'
+};
+
+## Future Enhancements
+- Real-time booking updates
+- Payment gateway integration
+- Admin dashboard analytics
+- Email and SMS notifications
+- Unit and integration testing
+
+## License
+MIT License
+
+## Author
+Developed by Mamta Rana
