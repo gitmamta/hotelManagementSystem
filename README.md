@@ -62,7 +62,7 @@ https://github.com/gitmamta/hotelManagementSystem.git
 ### Backend Setup
 cd backend  
 npm install  
-npm start  
+node app.js  
 
 Create a `.env` file:
 PORT=5000  
